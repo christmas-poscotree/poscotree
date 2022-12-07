@@ -1,20 +1,18 @@
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="Controller.GSDAO"%>
+<%@page import="Controller.TreeDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>MessageForm</title>
 </head>
 <body>
-	<h1>tigerView1.jsp</h1>
-	<form method = 'post' action='t3'>
+	<h1>MessageForm.jsp</h1>
+	<form method = 'post' action='tree/{tree_no}/send' accept-charset="UTF-8">
 		<input type = 'text' name = 'message'/><br/>
-		<input type = 'text' name = 'pw'/><br/>
-		<input type = 'text' name = 'email'/><br/>
-		<input type = 'text' name = 'tel'/><br/>
+		<input type = 'text' name = 'sender'/><br/>
 		<input type = 'submit' value = 'insert'/>
 	</form>
 	<% 

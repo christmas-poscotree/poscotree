@@ -5,36 +5,67 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
+import domain.MessageDTO;
 import domain.TreeDTO;
 
 public class TreeDAO {
 	
-	Connection connection;
+	Connection connection = null;
 	ResultSet rs = null;
-	
-	public void select(Model model) throws SQLException {
+	String field;
+	public TreeDTO select() throws SQLException {
+//		this.field = field;
+		TreeDTO value = null;
 		connection();
 		
-		PreparedStatement pre = connection.prepareStatement("select * from table01");
-		System.out.println("select * from table01");
+		String sql = ("select * from message");
+		PreparedStatement pre = connection.prepareStatement(sql);
+//		pre.setString(1, field);
+		System.out.println("field :" + field);
 		rs = pre.executeQuery();
-		model.addAttribute("pre", pre);
 		while(rs.next()) {
-			System.out.println(rs.getString(2));
+			value = new TreeDTO(rs.getString(3), rs.getString(4));
+			System.out.println("rs -----> value");
 		}
+		System.out.println("value : " + value);
+		
+		return value;
+	}
+	
+	public LinkedList<TreeDTO> selectlistMessage() throws SQLException {
+//		this.field = field;
+		String[] value = null;
+		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
+		int i = 0;
+		connection();
+		
+		String sql = ("select * from message");
+		PreparedStatement pre = connection.prepareStatement(sql);
+//		pre.setString(1, field);
+		System.out.println("field :" + field);
+		rs = pre.executeQuery();
+		while(rs.next()) {
+			ll.add(new TreeDTO(rs.getString(3), rs.getString(4)));
+			System.out.println("rs -----> value");
+		}
+//		System.out.println("value : " + value);
+		
+		return ll;
 	}
 	
 	public void insert(TreeDTO dto) throws SQLException {
 		connection();
 		
-		String sql = "insert into table01 (no, id, pw) values (null, ?, ?)";
+		String sql = "insert into message (tree_no, message, sender, date, checked) values (1, ?, ?, now(), false)";
 		PreparedStatement pre = connection.prepareStatement(sql);
 		
-		pre.setString(1, dto.getId());
-		pre.setString(2, dto.getPw());
+		pre.setString(1, dto.getMessage());
+		pre.setString(2, dto.getSender());
 //		pre.setString(3, dto.getEmail());
 //		pre.setString(4, dto.getTel());
 		
