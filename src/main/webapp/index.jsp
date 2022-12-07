@@ -6,8 +6,7 @@ pageEncoding="UTF-8"%>
 <title>메인 페이지</title>
 </head>
 <body>
-<%=new Date()%>
-<h2>Hello World</h2>
+
 
 <a href="t1">링크1</a><br/>
 
@@ -18,4 +17,6 @@ pageEncoding="UTF-8"%>
 <a href="login">로그인</a><br/>
 <a href="trees/create">트리 생성하기</a><br/>
 
+    <a href="login">내 트리로 로그인</a><br/>
+    <a href="signup">내 트리 만들기</a><br/>
 </body>
