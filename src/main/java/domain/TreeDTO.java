@@ -1,46 +1,33 @@
 package domain;
 
+import java.util.LinkedList;
+
 public class TreeDTO {
-	private String id;
-	private String pw;
-	private String email;
-	private String tel;
+	private String message;
+	private String sender;
+	
+	
+	LinkedList<Object> ll = new LinkedList<Object>();
 	TreeDTO(){}
-	TreeDTO(String id, String pw, String email, String tel) {
-		this.id = id;
-		this.pw = pw;
-		this.email = email;
-		this.tel = tel;
+	public TreeDTO(String message, String sender) {
+		this.message = message;
+		this.sender = sender;
 	}
-	
-	public String getId() {
-		return id;
+	public String getMessage() {
+		return message;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	public String getPw() {
-		return pw;
+	public String getSender() {
+		return sender;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	
 	@Override
 	public String toString() {
-		return "GSVO [id=" + id + ", pw=" + pw + ", email=" + email + ", tel=" + tel + "]";
+		return "TreeDTO [message=" + message + ", sender=" + sender + "]";
 	}
 	
 }
