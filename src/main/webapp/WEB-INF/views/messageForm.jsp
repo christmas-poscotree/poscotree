@@ -1,22 +1,18 @@
-
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="repository.MessageRepository"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR" %>
+<%@page import="java.sql.PreparedStatement"%> <%@page
+import="repository.MessageRepository"%> <%@ page language="java"
+contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="EUC-KR">
-<title>MessageForm</title>
-</head>
-<body>
-	<h1>메세지 입력하세요:)</h1>
-	<form method = 'post' action='tree/{tree_no}/send' accept-charset="UTF-8">
-		<textarea name = 'message'>메세지 : </textarea><br/>
-		<input type = 'text' name = 'sender'/><br/>
-		<input type = 'submit' value = 'insert'/>
-	</form>
-	<% 
-	%>
-</body>
+    <head>
+        <meta charset="EUC-KR" />
+        <title>MessageForm</title>
+    </head>
+    <body>
+        <h1>占쌨쇽옙占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙:)</h1>
+        <form method="post" action="tree/{tree_no}/send" accept-charset="UTF-8">
+            <textarea name="message">占쌨쇽옙占쏙옙 : </textarea><br />
+            <input type="text" name="sender" /><br />
+            <input type="submit" value="insert" />
+        </form>
+    </body>
 </html>
