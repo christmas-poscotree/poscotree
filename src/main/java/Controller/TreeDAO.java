@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 import org.springframework.ui.Model;
 
-import domain.GSDTO;
+import domain.TreeDTO;
 
-public class GSDAO {
+public class TreeDAO {
 	
 	Connection connection;
 	ResultSet rs = null;
@@ -27,10 +27,10 @@ public class GSDAO {
 		}
 	}
 	
-	public void insert(GSDTO dto) throws SQLException {
+	public void insert(TreeDTO dto) throws SQLException {
 		connection();
 		
-		String sql = "insert into table01 (id, pw, email, tel) values (?, ?)";
+		String sql = "insert into table01 (no, id, pw) values (null, ?, ?)";
 		PreparedStatement pre = connection.prepareStatement(sql);
 		
 		pre.setString(1, dto.getId());
@@ -42,8 +42,8 @@ public class GSDAO {
 	}
 	
 	public void connection() throws SQLException {
-		String url = "jdbc:mysql://192.168.0.191:3306/db01";
-		String user = "test";
+		String url = "jdbc:mysql://192.168.0.198:3306/db01";
+		String user = "vote";
 		String pwd = "1234";
 		
 		try {

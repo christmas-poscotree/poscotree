@@ -7,14 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import domain.GSDTO;
+import domain.TreeDTO;
+
 
 @Controller
-public class GSController {
-	GSDAO dao = new GSDAO();
+public class TreeController {
+	TreeDAO dao = new TreeDAO();
 	@RequestMapping("/t1")
 	public String func(Model model) throws SQLException {
-		dao.select(model);
 		System.out.println("function call");
 		return "TigerView";
 	}
@@ -33,7 +33,7 @@ public class GSController {
 	}
 	
 	@RequestMapping("/t3")
-	public String func3(GSDTO dto) throws SQLException {
+	public String func3(TreeDTO dto) throws SQLException {
 		System.out.println("insert function call");
 		dao.insert(dto);
 		return "TigerView";
