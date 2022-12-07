@@ -19,7 +19,7 @@ public class MemberRepository {
         pre.setString(1, email);
         rs = pre.executeQuery();
 
-        if (!rs.next()) return Optional.of(null);
+        if (!rs.next()) return Optional.empty();
         return Optional.of(
             new Member(rs.getInt("member_no"),
                        rs.getString("email"),

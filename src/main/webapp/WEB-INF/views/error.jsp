@@ -8,6 +8,6 @@
 <body>
     <body>
 
-        <h3 style="color: Gray" > 에러입니다. ${error} </h3>
+        <h3 style="color: Gray" > 에러 : ${error} </h3>
     </body>
 </body>
