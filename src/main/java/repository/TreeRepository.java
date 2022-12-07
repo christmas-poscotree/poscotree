@@ -1,4 +1,4 @@
-package Controller;
+package repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import domain.MessageDTO;
 import domain.TreeDTO;
 
-public class TreeDAO {
+public class TreeRepository {
 	
 	Connection connection = null;
 	ResultSet rs = null;

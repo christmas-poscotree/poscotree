@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import domain.TreeDTO;
+import repository.TreeRepository;
 
 
 @Controller
 public class TreeController {
-	TreeDAO dao = new TreeDAO();
+	TreeRepository dao = new TreeRepository();
 	@RequestMapping("/tree")
-	public String func(Model model) throws SQLException {
+	public String funcTree(Model model) throws SQLException {
 		System.out.println("로그인한 사람 트리");
 		return "tree";
 	}
