@@ -1,6 +1,7 @@
 package Controller;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,26 +17,38 @@ public class TreeController {
 	@RequestMapping("/t1")
 	public String func(Model model) throws SQLException {
 		System.out.println("function call");
-		return "TigerView";
+		return "messageForm";
 	}
 	
-	@RequestMapping("/t2") 
-	public String func2(
-			@RequestParam(value = "id") String id,
-			@RequestParam(value = "pw") String pw,
-			@RequestParam(value = "email") String email,
-			@RequestParam(value = "tel") String tel
-			) throws SQLException {
-		System.out.println("insert function call");
+	@RequestMapping("/tree/{tree_no}/{message_no}") 
+	public String func2(Model model) throws SQLException {
+		String message = "message";
+		String sender = "sender";
 		
-//		dao.insert(id, pw, email, tel);
-		return "TigerView";
+		message = dao.select().getMessage();
+		sender = dao.select().getSender();
+		
+		System.out.println(message);
+		System.out.println(sender);
+		model.addAttribute("message", message);
+		model.addAttribute("sender", sender);
+		System.out.println("select function call");
+		
+		return "messageView";
 	}
 	
-	@RequestMapping("/t3")
+	@RequestMapping("/tree/{tree_no}/send")
 	public String func3(TreeDTO dto) throws SQLException {
 		System.out.println("insert function call");
 		dao.insert(dto);
-		return "TigerView";
+		return "messageForm";
+	}
+	@RequestMapping("/tree/{tree_no}/message-list}")
+	public String func4(Model model) throws SQLException {
+		System.out.println("insert function call");
+		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
+		ll = dao.selectlistMessage();
+		model.addAttribute("list", ll);
+		return "messageList";
 	}
 }
