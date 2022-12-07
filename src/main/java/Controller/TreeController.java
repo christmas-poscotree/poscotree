@@ -13,10 +13,10 @@ import domain.TreeDTO;
 @Controller
 public class TreeController {
 	TreeDAO dao = new TreeDAO();
-	@RequestMapping("/t1")
+	@RequestMapping("/tree")
 	public String func(Model model) throws SQLException {
-		System.out.println("function call");
-		return "TigerView";
+		System.out.println("로그인한 사람 트리");
+		return "tree";
 	}
 	
 	@RequestMapping("/t2") 
@@ -38,4 +38,5 @@ public class TreeController {
 		dao.insert(dto);
 		return "TigerView";
 	}
+	
 }

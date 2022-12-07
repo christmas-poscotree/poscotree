@@ -8,5 +8,7 @@ pageEncoding="UTF-8"%>
 <body>
 <%=new Date()%>
 <h2>Hello World</h2>
-<a href="t1">링크1</a><br/>
+<!-- 원래는 로그인 페이지에서 로그인 누르면!  -->
+<a href="login">로그인</a><br/>
+<a href="trees/create">트리 생성하기</a><br/>
 </body>
