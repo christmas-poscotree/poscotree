@@ -4,9 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<style type="text/css">
+.background{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    min-height: calc(var(--vh,1vh) * 100);
+    width: 768px;
+    margin: 0px auto;
+    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+</style>
+
 <title>My tree</title>
 	<script type="text/javascript">
-		alert("확인");
 		let nowUrl = window.location.href;
 		
 		function copyUrl(){ 
@@ -23,6 +39,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String treename = (String) request.getAttribute("tree_nm");
 	%>
+	<div class="background">
 	<h6>포스코ICT 4기 Tree</h6>
 	<br />
 
@@ -38,7 +55,7 @@
 				<button class="copy-btn" onclick="treeCreateForm.jsp"> 트리 꾸며주기</button>
 				<button onclick="login"> 나도 트리 만들래!</button>
 		<% }%>
-	
+	</div>
 </body>
 </html>
 
