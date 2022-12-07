@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import repository.MemberRepository;
@@ -31,11 +32,11 @@ public class MemberController {
                                              .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 회원 정보입니다."));
         session.setAttribute("memberNo", loginMember.getMemberNo());
 
-        Integer userTreeNo = treeRepository.findUserTree(member.getMemberNo());
+        Integer userTreeNo = treeRepository.findUserTree(loginMember.getMemberNo());
         if (Objects.isNull(userTreeNo)) {
-            return "/tree/create";
+            return "redirect:/tree/create";
         } else {
-            return "/tree/" + userTreeNo;
+            return "redirect:/tree/" + userTreeNo;
         }
     }
 
@@ -62,7 +63,7 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class})
     public String error(Exception e, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("error", e.getMessage());
         return "redirect:/error";

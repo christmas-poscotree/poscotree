@@ -5,9 +5,10 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import repository.TreeRepository;
-
 
 @Controller
 public class TreeController {
@@ -58,4 +59,14 @@ public class TreeController {
         return "messageList";
     }
 
+    @GetMapping(value = "/tree/create")
+    public String treeCreate() {
+        return "treeCreateForm";
+    }
+
+    @PostMapping(value = "/tree/create")
+    public String doTreeCreate() {
+        // TODO 트리 생성 구문 작성
+        return "";
+    }
 }
