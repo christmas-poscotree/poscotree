@@ -72,10 +72,10 @@ public class MessageController {
 	}
 	
 	@RequestMapping("/tree/{tree_no}/message-list}")
-	public String func4(Model model) throws SQLException {
+	public String func4(Model model, @PathVariable Integer tree_no) throws SQLException {
 		System.out.println("insert function call");
 		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
-		ll = dao.selectlistMessage();
+		ll = dao.selectlistMessage(tree_no);
 		model.addAttribute("list", ll);
 		return "tree";
 	}

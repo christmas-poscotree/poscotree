@@ -9,11 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import repository.MemberRepository;
-import repository.TreeRepository;
+import repository.MessageRepository;
 
 @Controller
 public class MemberController {
@@ -26,7 +25,7 @@ public class MemberController {
     @PostMapping(value = "/login")
     public String doLogin(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
         MemberRepository memberRepository = new MemberRepository();
-        TreeRepository treeRepository = new TreeRepository();
+        MessageRepository treeRepository = new MessageRepository();
         HttpSession session = request.getSession();
         Member loginMember = memberRepository.selectUser(member.getEmail())
                                              .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 회원 정보입니다."));

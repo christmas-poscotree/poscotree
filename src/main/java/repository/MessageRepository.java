@@ -1,6 +1,6 @@
 package repository;
 
-import domain.Member;
+import domain.Tree;
 import domain.TreeDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
-import java.util.Optional;
 
 public class MessageRepository {
 	
@@ -34,7 +33,7 @@ public class MessageRepository {
 		return value;
 	}
 	
-	public LinkedList<TreeDTO> selectlistMessage() throws SQLException {
+	public LinkedList<TreeDTO> selectlistMessage(Integer tree_no) throws SQLException {
 
 //		this.field = field;
         String[] value = null;
@@ -42,9 +41,9 @@ public class MessageRepository {
         int i = 0;
         connection();
 
-        String sql = ("select * from message");
+        String sql = ("select * from message where tree_no = ?");
         PreparedStatement pre = connection.prepareStatement(sql);
-//		pre.setString(1, field);
+		pre.setInt(1, tree_no);
         System.out.println("field :" + field);
         rs = pre.executeQuery();
         while (rs.next()) {
@@ -70,17 +69,41 @@ public class MessageRepository {
         pre.executeUpdate();
     }
 
-	public Integer findUserTree(Integer memberNo) throws SQLException {
-		connection();
+    public Integer findUserTree(Integer memberNo) throws SQLException {
+        connection();
 
-		String sql = "select * from tree where member_no = ?";
-		PreparedStatement pre = connection.prepareStatement(sql);
-		pre.setInt(1, memberNo);
-		rs = pre.executeQuery();
+        String sql = "select * from tree where member_no = ?";
+        PreparedStatement pre = connection.prepareStatement(sql);
+        pre.setInt(1, memberNo);
+        rs = pre.executeQuery();
 
-		if (!rs.next()) return null;
-		return rs.getInt("tree_no");
-	}
+        if (!rs.next()) return null;
+        return rs.getInt("tree_no");
+    }
+
+    public void createTree(Tree tree) throws SQLException {
+        connection();
+
+        String sql = "insert into tree(tree_no, tree_nm, member_no) values (null, ?, ?)";
+        PreparedStatement pre = connection.prepareStatement(sql);
+        pre.setString(1, tree.getTreeNm());
+        pre.setInt(2, tree.getMemberNo());
+
+        pre.executeUpdate();
+    }
+
+    public String findTreeName(Integer treeNo) throws SQLException {
+        connection();
+
+        String sql = "select tree_nm from tree where tree_no = ?";
+
+        PreparedStatement pre = connection.prepareStatement(sql);
+        pre.setInt(1, treeNo);
+        rs = pre.executeQuery();
+
+        if (!rs.next()) return null;
+        return rs.getString("tree_nm");
+    }
 
     public void connection() throws SQLException {
         String url = "jdbc:mysql://192.168.0.198:3306/db01";
