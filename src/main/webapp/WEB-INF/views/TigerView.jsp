@@ -1,5 +1,5 @@
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="Controller.GSDAO"%>
+<%@page import="Controller.TreeDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
