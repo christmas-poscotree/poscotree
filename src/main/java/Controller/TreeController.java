@@ -22,7 +22,7 @@ public class TreeController {
 	
 
 	@RequestMapping("/t1")
-	public String func(Model model) throws SQLException {
+	public String func5(Model model) throws SQLException {
 	System.out.println("function call");
 	return "messageForm";
 	}
