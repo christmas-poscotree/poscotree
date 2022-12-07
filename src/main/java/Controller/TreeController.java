@@ -14,12 +14,19 @@ import domain.TreeDTO;
 @Controller
 public class TreeController {
 	TreeDAO dao = new TreeDAO();
-	@RequestMapping("/t1")
+	@RequestMapping("/tree")
 	public String func(Model model) throws SQLException {
-		System.out.println("function call");
-		return "messageForm";
+		System.out.println("로그인한 사람 트리");
+		return "tree";
 	}
 	
+
+	@RequestMapping("/t1")
+	public String func(Model model) throws SQLException {
+	System.out.println("function call");
+	return "messageForm";
+	}
+
 	@RequestMapping("/tree/{tree_no}/{message_no}") 
 	public String func2(Model model) throws SQLException {
 		String message = "message";
@@ -51,4 +58,5 @@ public class TreeController {
 		model.addAttribute("list", ll);
 		return "messageList";
 	}
+	
 }
