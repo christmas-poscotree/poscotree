@@ -40,7 +40,7 @@ public class TreeDAO {
 		
 		pre.executeUpdate();
 	}
-	
+
 	public void connection() throws SQLException {
 		String url = "jdbc:mysql://192.168.0.198:3306/db01";
 		String user = "vote";

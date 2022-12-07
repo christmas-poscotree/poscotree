@@ -6,7 +6,8 @@ pageEncoding="UTF-8"%>
 <title>메인 페이지</title>
 </head>
 <body>
-<%=new Date()%>
-<h2>Hello World</h2>
-<a href="t1">링크1</a><br/>
+    <%=new Date()%>
+    <h2>Hello World</h2>
+    <a href="login">내 트리로 로그인</a><br/>
+    <a href="signup">내 트리 만들기</a><br/>
 </body>
