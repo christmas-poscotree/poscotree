@@ -1,6 +1,6 @@
 
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="Controller.TreeDAO"%>
+<%@page import="repository.MessageRepository"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
          pageEncoding="EUC-KR" %>
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
 <title>MessageForm</title>
 </head>
 <body>
-	<h1>MessageForm.jsp</h1>
+	<h1>메세지 입력하세요:)</h1>
 	<form method = 'post' action='tree/{tree_no}/send' accept-charset="UTF-8">
-		<input type = 'text' name = 'message'/><br/>
+		<textarea name = 'message'>메세지 : </textarea><br/>
 		<input type = 'text' name = 'sender'/><br/>
 		<input type = 'submit' value = 'insert'/>
 	</form>

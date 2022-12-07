@@ -13,19 +13,19 @@ import org.springframework.web.servlet.ModelAndView;
 import domain.MessageDTO;
 import domain.TreeDTO;
 
-public class TreeRepository {
+public class MessageRepository {
 	
 	Connection connection = null;
 	ResultSet rs = null;
 	String field;
-	public TreeDTO select() throws SQLException {
+	public TreeDTO select(String message_no) throws SQLException {
 //		this.field = field;
 		TreeDTO value = null;
 		connection();
 		
-		String sql = ("select * from message");
+		String sql = ("select * from message where message_no = ?");
 		PreparedStatement pre = connection.prepareStatement(sql);
-//		pre.setString(1, field);
+		pre.setString(1, message_no);
 		System.out.println("field :" + field);
 		rs = pre.executeQuery();
 		while(rs.next()) {
