@@ -3,11 +3,11 @@
 <%@ page import="java.util.*, java.text.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-    <title>메인 페이지</title>
+    <title>error</title>
 </head>
 <body>
     <body>
 
-        <h1 style="color: red" > ${error} </h1>
+        <h3 style="color: Gray" > 에러 : ${error} </h3>
     </body>
 </body>
