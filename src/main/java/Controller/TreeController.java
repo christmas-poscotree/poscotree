@@ -42,6 +42,7 @@ public class TreeController {
         HttpSession session = request.getSession();
         Integer memberNo = (Integer) session.getAttribute("memberNo");
         tree.setMemberNo(memberNo);
+        System.out.println(tree);
         dao.createTree(tree);
         Integer userTreeNo = dao.findUserTree(memberNo);
         return "redirect:/tree/" + userTreeNo;

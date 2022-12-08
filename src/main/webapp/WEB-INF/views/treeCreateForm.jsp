@@ -142,17 +142,6 @@ top: 100px;
     font-family: humanbeomseok;
     }
 
-.cinfo{
-	    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    vertical-align: baseline;
-    font-family: humanbeomseok;
-    text-align: center;
-    font-weight: 500;
-    font-size: 12px;
-    }
 }
 </style>
 
@@ -179,12 +168,13 @@ top: 100px;
 					<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
 						<input type="text" placeholder="닉네임" class="nick" value="" name="treeNm" style="font-weight: bold; font-family: humanbeomseok;" required>
 						<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1>
-
+					</form>
+					
 					<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea>
 					<br>
-					<div class="cinfo">* 트리 이름과 색상은 나중에도 수정할 수 있어요! *</div>
 
 					<br>
+					<form>			
 						<button type="submit" class="create">트리 만들기</button>
 					</form>
 					
