@@ -66,11 +66,10 @@
 		let nowUrl = window.location.href;
 		
 		function copyUrl(){ 
-		  //nowUrl 변수에 담긴 주소를
-		  	navigator.clipboard.writeText(nowUrl).then(res=>{
-			  alert("주소가 복사되었습니다!");
-			})
-		}
+			  	navigator.clipboard.writeText(nowUrl).then(res=>{
+				 alert("주소가 복사되었습니다!");
+				})
+			}
 	</script>
 </head>
 
@@ -104,7 +103,7 @@
 	</h3>
 
 	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
-		<button  onClick="location.href='/tree/<%=memberNo%>/message-list'">편지 확인하기</button>
+		<button  onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
 		<button  class="copy-btn" onclick="copyUrl()">호텔링크 복사하기</button>
 
 	<a href="/logout">로그아웃</a>
