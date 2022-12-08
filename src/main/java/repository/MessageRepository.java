@@ -109,6 +109,7 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, memberNo);
         rs = pre.executeQuery();
+        rs.next();
 
         if (!rs.next()) return null;
         return rs.getInt("tree_no");
@@ -134,18 +135,19 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, treeNo);
         rs = pre.executeQuery();
+        rs.next();
 
         if (!rs.next()) return null;
         return rs.getString("tree_nm");
     }
 
     public void connection() throws SQLException {
-        String url = "jdbc:mysql://127.0.0.1:3306/db01";
-        String user = "vote";
+        String url = "jdbc:mysql://52.196.24.212:3306/db01";
+        String user = "bit";
         String pwd = "1234";
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pwd);
             System.out.println("DB connect Success!!");
 

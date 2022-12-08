@@ -27,6 +27,8 @@ public class MemberController {
         MemberRepository memberRepository = new MemberRepository();
         MessageRepository treeRepository = new MessageRepository();
         HttpSession session = request.getSession();
+        System.out.println("멤버 : " + member.getEmail() + " " + member.getPassword());
+        System.out.println("이메일 : " + member.getEmail());
         Member loginMember = memberRepository.selectUser(member.getEmail())
                                              .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 회원 정보입니다."));
         if (!Objects.equals(member.getPassword(), loginMember.getPassword())) {
