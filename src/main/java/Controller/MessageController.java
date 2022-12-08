@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,29 +29,12 @@ public class MessageController {
 	return "messageForm";
 	}
 
-//	@RequestMapping("/tree/{tree_no}/{message_no}") 
-//	public String func2(Model model) throws SQLException {
-//		String message = "message";
-//		String sender = "sender";
-//		
-//		message = dao.select().getMessage();
-//		sender = dao.select().getSender();
-//		
-//		System.out.println(message);
-//		System.out.println(sender);
-//		model.addAttribute("message", message);
-//		model.addAttribute("sender", sender);
-//		System.out.println("select function call");
-//		
-//		return "messageView";
-//	}
 	@RequestMapping("/tree/{tree_no}/{message_no}")
 	public String func3(
 			Model model, 
 			@PathVariable("tree_no") String tree_no,
 			@PathVariable("message_no") String message_no
 			) throws SQLException {
-//		message_no = message1;
 		String message = "message";
 		String sender = "sender";
 		System.out.println(message_no);
@@ -64,6 +49,15 @@ public class MessageController {
 		
 		return "messageView";
 	}
+	@DeleteMapping("/tree/{tree_no}/{message_no}")
+	public String func11(
+			@PathVariable("tree_no") String tree_no,
+			@PathVariable("message_no") String message_no
+			) throws SQLException {
+		dao.delete(message_no);
+		
+		return "redirect:/tree/" + tree_no + "/message-list";
+	}
 	
 	@RequestMapping("/tree/{tree_no}/send")
 	public String func3(TreeDTO dto) throws SQLException {
@@ -72,7 +66,7 @@ public class MessageController {
 		return "tree";
 	}
 	
-	@RequestMapping("/tree/{tree_no}/message-list}")
+	@RequestMapping("/tree/{tree_no}/message-list")
 	public String func4(Model model, @PathVariable Integer tree_no) throws SQLException {
 		System.out.println("insert function call");
 		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();

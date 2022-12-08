@@ -51,7 +51,7 @@
 	<div class="background">
 	<h6>포스코ICT 4기 Tree</h6>
 	<br />
-	<img src="img/sock.png">
+	<img src="../img/sock.png">
 	<%
 		out.println(list01.get(0).getMessage() + " " + list01.get(0).getSender());
 		out.println("<br/>");
@@ -66,8 +66,7 @@
 	%>
 
 	<button  onClick="location.href='/tree/<%=memberNo%>/<%=message_no1%>'">
-	<%-- 	<%= out.println(list01.get(0).getMessage() + " " + list01.get(0).getSender())%>
-		<%= out.println("<br/>")%> --%>
+	편지 확인하기
 	</button>
 	<button  onClick="location.href='/tree/<%=memberNo%>/<%=message_no2%>'">편지 확인하기</button>
 	<button  onClick="location.href='/tree/<%=memberNo%>/<%=message_no3%>'">편지 확인하기</button>
@@ -78,7 +77,7 @@
 	</h3>
 
 	<% if(session.getAttribute("memberNo") != null ) { //로그인했을때 %>
-		<button  onClick="location.href='/tree/<%=memberNo%>/message-list}'">편지 확인하기</button>
+		<button  onClick="location.href='/tree/<%=memberNo%>/message-list'">편지 확인하기</button>
 		<button  class="copy-btn" onclick="copyUrl()">호텔링크 복사하기</button>
 		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
 		

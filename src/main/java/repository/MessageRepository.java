@@ -69,6 +69,15 @@ public class MessageRepository {
 
         pre.executeUpdate();
     }
+    public void delete(String message_no) throws SQLException {
+    	connection();
+    	
+    	String sql = "delete from message where message_no = ?";
+    	PreparedStatement pre = connection.prepareStatement(sql);
+    	
+    	pre.setString(1, message_no);
+    	pre.executeUpdate();
+    }
 
     public Integer findUserTree(Integer memberNo) throws SQLException {
         connection();
