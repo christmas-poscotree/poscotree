@@ -64,7 +64,7 @@ public class MessageRepository {
 		int i = 0;
 		connection();
 		
-		String sql = ("select * from message where tree_no = ? order by message_no desc limit 5");
+		String sql = ("select * from message where tree_no = ? order by message_no desc limit 8");
 		PreparedStatement pre = connection.prepareStatement(sql);
 		pre.setInt(1, tree_no);
 		System.out.println("field :" + field);
@@ -78,14 +78,15 @@ public class MessageRepository {
 		return ll;
 	}
 
-    public void insert(TreeDTO dto) throws SQLException {
+    public void insert(TreeDTO dto, String tree_no) throws SQLException {
         connection();
 
-        String sql = "insert into message (tree_no, message, sender, date, checked) values (1, ?, ?, now(), false)";
+        String sql = "insert into message (tree_no, message, sender, date, checked) values (?, ?, ?, now(), false)";
         PreparedStatement pre = connection.prepareStatement(sql);
 
-        pre.setString(1, dto.getMessage());
-        pre.setString(2, dto.getSender());
+        pre.setString(1, tree_no);
+        pre.setString(2, dto.getMessage());
+        pre.setString(3, dto.getSender());
 //		pre.setString(3, dto.getEmail());
 //		pre.setString(4, dto.getTel());
 
