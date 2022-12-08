@@ -37,11 +37,11 @@ public class TreeController {
     }
 
     @PostMapping(value = "/tree/create")
-    public String doTreeCreate(HttpServletRequest request) throws SQLException {
+    public String doTreeCreate(@ModelAttribute Tree tree, HttpServletRequest request) throws SQLException {
         HttpSession session = request.getSession();
         Integer memberNo = (Integer) session.getAttribute("memberNo");
-        String treeNm = request.getParameter("treeNm");
-        dao.createTree(treeNm, memberNo);
+        tree.setMemberNo(memberNo);
+        dao.createTree(tree);
         Integer userTreeNo = dao.findUserTree(memberNo);
         return "redirect:/tree/" + userTreeNo;
     }

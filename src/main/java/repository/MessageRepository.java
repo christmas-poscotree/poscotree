@@ -82,13 +82,14 @@ public class MessageRepository {
         return rs.getInt("tree_no");
     }
 
-    public void createTree(String treeNm, Integer memberNo) throws SQLException {
+    public void createTree(Tree tree) throws SQLException {
         connection();
 
-        String sql = "insert into tree(tree_no, tree_nm, member_no) values (null, ?, ?)";
+        String sql = "insert into tree(tree_no, tree_nm, tree_info, member_no) values (null, ?, ?, ?)";
         PreparedStatement pre = connection.prepareStatement(sql);
-        pre.setString(1, treeNm);
-        pre.setInt(2, memberNo);
+        pre.setString(1, tree.getTreeNm());
+        pre.setString(2, tree.getTreeInfo());
+        pre.setInt(3, tree.getMemberNo());
 
         pre.executeUpdate();
     }
