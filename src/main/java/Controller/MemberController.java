@@ -16,23 +16,32 @@ import repository.MessageRepository;
 
 @Controller
 public class MemberController {
+    MemberRepository memberRepository = new MemberRepository();
+    MessageRepository treeRepository = new MessageRepository();
 
     @GetMapping(value = "/login")
-    public String login() {
-        return "loginForm";
+    public String login(HttpServletRequest request) throws SQLException {
+        HttpSession session = request.getSession();
+        Object memberNo = session.getAttribute("memberNo");
+        if (Objects.isNull(memberNo)) {
+            return "loginForm";
+        } else {
+            Integer userTreeNo = treeRepository.findUserTree((Integer) memberNo);
+            if (Objects.isNull(userTreeNo)) {
+                return "redirect:/tree/create";
+            } else {
+                return "redirect:/tree/" + userTreeNo;
+            }
+        }
     }
 
     @PostMapping(value = "/login")
     public String doLogin(@ModelAttribute Member member, HttpServletRequest request) throws SQLException {
-        MemberRepository memberRepository = new MemberRepository();
-        MessageRepository treeRepository = new MessageRepository();
         HttpSession session = request.getSession();
-        System.out.println("멤버 : " + member.getEmail() + " " + member.getPassword());
-        System.out.println("이메일 : " + member.getEmail());
         Member loginMember = memberRepository.selectUser(member.getEmail())
                                              .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 회원 정보입니다."));
         if (!Objects.equals(member.getPassword(), loginMember.getPassword())) {
-             throw new IllegalArgumentException("비밀번호가 유효하지 않습니다.");
+            throw new IllegalArgumentException("비밀번호가 유효하지 않습니다.");
         }
 
         session.setAttribute("memberNo", loginMember.getMemberNo());
@@ -59,7 +68,6 @@ public class MemberController {
 
     @PostMapping(value = "/signup")
     public String doSignup(@ModelAttribute Member member) throws SQLException {
-        MemberRepository memberRepository = new MemberRepository();
         if (memberRepository.checkedEmail(member.getEmail())) {
             memberRepository.insert(member);
         } else {

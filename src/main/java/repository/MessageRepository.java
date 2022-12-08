@@ -110,7 +110,6 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, memberNo);
         rs = pre.executeQuery();
-        rs.next();
 
         if (!rs.next()) return null;
         return rs.getInt("tree_no");
@@ -136,7 +135,6 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, treeNo);
         rs = pre.executeQuery();
-        rs.next();
 
         if (!rs.next()) return Optional.empty();
         return Optional.of(
