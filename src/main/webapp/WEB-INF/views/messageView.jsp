@@ -22,13 +22,11 @@
     overflow: auto;
 }
 .mess{
-	margin-left:40%;
     overflow: hidden;
     box-sizing: border-box;
     min-height: 183px;
     width: 293px;
-    margin-top: 33px;
-    padding: 25px;
+    margin: 300px auto;
     background: rgb(255, 255, 255);
     border: 1px solid rgb(217, 217, 217);
     border-radius: 7px;
@@ -38,11 +36,8 @@
     line-height: 19px;
     resize: none;
     height: 180px;
-    
     text-align: center;
-    
     height: fit-content;
-  
     box-sizing: border-box;
     border: 2px dashed rgb(164, 214, 203);
     border-radius: 3px;
@@ -66,11 +61,13 @@
 <div class="background">
 
 	<div class="mess" >
+	<div style="margin: 60px auto;">
 	<h1>${message }</h1>
 	
 	<div class="send">
 		<h3>From. ${sender }</h3>
 	
+	</div>
 	</div>
 	</div>
 	<%

@@ -103,7 +103,7 @@ function popOpen() {
     color: white;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 100px;
+    margin-left: 90px;
 }
 
 .btn {
@@ -228,7 +228,10 @@ function popOpen() {
 <div class="background">
 	<%
 		LinkedList<TreeDTO> list01 = (LinkedList<TreeDTO>)request.getAttribute("list");
-		String num = "1";
+		// String num = list01.get;
+		System.out.println("온 거 : " + request.getAttribute("treeNo"));
+		String num = String.valueOf(request.getAttribute("treeNo"));
+		
 	%>
 
 	
@@ -271,7 +274,6 @@ function popOpen() {
         <img src="/img/0.png" class="img-size"/>친구에게 나의 트리를 공유해요.<br><br>
         </div>
     </div>
-<div></div>
 <!-- 여기는 모달 끝 -->
 
 </div>

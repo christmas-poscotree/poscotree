@@ -2,6 +2,7 @@ package Controller;
 
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import domain.Tree;
 import domain.TreeDTO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import repository.MessageRepository;
@@ -77,10 +79,14 @@ public class MessageController {
 	
 	@RequestMapping("/tree/{tree_no}/message-list")
 	public String func4(Model model, @PathVariable Integer tree_no) throws SQLException {
-		System.out.println("insert function call");
-		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
+		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();		
 		ll = dao.selectlistMessage(tree_no);
+		Tree treeInfo = dao.findTree(tree_no).orElseThrow(() -> new IllegalArgumentException("트리 번호가 유효하지 않습니다."));
+		
 		model.addAttribute("list", ll);
+		model.addAttribute("treeNo", treeInfo.getTreeNo());
+		System.out.println("treeNo : " + treeInfo.getTreeNo());
+		System.out.println("treeNo type : " + treeInfo.getTreeNo().getClass().getName());
 		return "messageList";
 	}
 	

@@ -190,8 +190,8 @@
 	Integer treeNo = (Integer) request.getAttribute("tree_no");
 	Integer treeMemberNo = (Integer) request.getAttribute("nowMemberNo");
 	%>
+	<div class="background">
 	<div class="root">
-		<div class="background">
 		
 		<div class ="bform"> 
 			<div class ="title">
@@ -220,7 +220,7 @@
 			<div class='bform'>
 			<button  type="submit" class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'"style="cursor: pointer;">편지 확인하기</button>
 			<button  type="submit" class="sign" onClick="copyUrl()"style="cursor: pointer;">호텔링크 복사하기</button>
-		<a href="/logout">로그아웃</a>
+			<button  type="submit" class="log" onClick="location.href='/logout'"style="cursor: pointer;">로그아웃</button>
 		</div>
 		<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
 			<div class='bform'>
