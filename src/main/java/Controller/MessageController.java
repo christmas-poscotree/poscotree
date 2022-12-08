@@ -20,14 +20,18 @@ import repository.MessageRepository;
 @Controller
 public class MessageController {
 	MessageRepository dao = new MessageRepository();
-	@RequestMapping("/t2")
+	@RequestMapping("/t1")
 	public String func1(Model model) throws SQLException {
 	System.out.println("function call");
 	return "messageMain";
 	}
-	@RequestMapping("/t1")
-	public String func5(Model model) throws SQLException {
-	System.out.println("function call");
+	@RequestMapping("/tree/{tree_no}/MessageForm")
+	public String func5(
+			Model model,
+			@PathVariable("tree_no") String tree_no
+			) throws SQLException {
+		System.out.println("function call");
+		model.addAttribute("tree_No", tree_no);
 	return "messageForm";
 	}
 
@@ -62,10 +66,13 @@ public class MessageController {
 	}
 	
 	@RequestMapping("/tree/{tree_no}/send")
-	public String func3(TreeDTO dto) throws SQLException {
+	public String func3(
+			TreeDTO dto,
+			@PathVariable("tree_no") String tree_no
+			) throws SQLException {
 		System.out.println("insert function call");
-		dao.insert(dto);
-		return "tree";
+		dao.insert(dto, tree_no);
+		return "redirect:/tree/" + tree_no + "/message-list";
 	}
 	
 	@RequestMapping("/tree/{tree_no}/message-list")

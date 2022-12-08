@@ -23,8 +23,11 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
         <title>MessageForm</title>
     </head>
     <body>
-        <h1>ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½:)</h1>
-        <form method="post" action="tree/{tree_no}/send" accept-charset="UTF-8">
+    <%
+    	String treeNo = (String) request.getAttribute("tree_No");
+    %>
+        <h1>¸Þ¼¼Áö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:)</h1>
+        <form method="post" action="/tree/<%= treeNo %>/send" accept-charset="UTF-8">
             <textarea name="message">ï¿½Þ¼ï¿½ï¿½ï¿½ : </textarea><br />
             <input type="text" name="sender" /><br />
             <input type="submit" value="insert" />

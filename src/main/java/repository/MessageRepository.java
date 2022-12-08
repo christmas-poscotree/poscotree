@@ -65,7 +65,7 @@ public class MessageRepository {
 		int i = 0;
 		connection();
 		
-		String sql = ("select * from message where tree_no = ? order by message_no desc limit 5");
+		String sql = ("select * from message where tree_no = ? order by message_no desc limit 8");
 		PreparedStatement pre = connection.prepareStatement(sql);
 		pre.setInt(1, tree_no);
 		System.out.println("field :" + field);
@@ -79,14 +79,15 @@ public class MessageRepository {
 		return ll;
 	}
 
-    public void insert(TreeDTO dto) throws SQLException {
+    public void insert(TreeDTO dto, String tree_no) throws SQLException {
         connection();
 
-        String sql = "insert into message (tree_no, message, sender, date, checked) values (1, ?, ?, now(), false)";
+        String sql = "insert into message (tree_no, message, sender, date, checked) values (?, ?, ?, now(), false)";
         PreparedStatement pre = connection.prepareStatement(sql);
 
-        pre.setString(1, dto.getMessage());
-        pre.setString(2, dto.getSender());
+        pre.setString(1, tree_no);
+        pre.setString(2, dto.getMessage());
+        pre.setString(3, dto.getSender());
 //		pre.setString(3, dto.getEmail());
 //		pre.setString(4, dto.getTel());
 
@@ -109,6 +110,7 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, memberNo);
         rs = pre.executeQuery();
+        rs.next();
 
         if (!rs.next()) return null;
         return rs.getInt("tree_no");
@@ -134,6 +136,7 @@ public class MessageRepository {
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, treeNo);
         rs = pre.executeQuery();
+        rs.next();
 
         if (!rs.next()) return Optional.empty();
         return Optional.of(
@@ -145,12 +148,12 @@ public class MessageRepository {
     }
 
     public void connection() throws SQLException {
-        String url = "jdbc:mysql://127.0.0.1:3306/db01";
-        String user = "vote";
+        String url = "jdbc:mysql://52.196.24.212:3306/db01";
+        String user = "bit";
         String pwd = "1234";
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pwd);
             System.out.println("DB connect Success!!");
 

@@ -22,6 +22,43 @@
     flex-direction: column;
     overflow: auto;
 }
+			div {
+				width: 500px;
+				height: 400px;
+				position: absolute;
+			}
+			div.x0 {
+				top: 300px;
+				left: 360px;
+			}
+			div.x1 {
+				top: 380px;
+				left: 270px;
+			}
+			div.x2 {
+				top: 450px;
+				left: 400px;
+			}
+			div.x3 {
+				top: 570px;
+				left: 260px;
+			}
+			div.x4 {
+				top: 610px;
+				left: 390px;
+			}
+			div.x5 {
+				top: 780px;
+				left: 250px;
+			}
+			div.x6 {
+				top: 780px;
+				left: 420px;
+			}
+			div.x7 {
+				top: 780px;
+				left: 500px;
+			}
 </style>
 
 <title>My tree</title>
@@ -50,14 +87,17 @@
 	<div class="background">
 	<h6>포스코ICT 4기 Tree</h6>
 	<br />
-	
+	<img src="../img/img_tree.png" width=800 height = 800>
+	<div>
 	<% for(int i = 0; i<list01.size(); i++) {%>
+		<div class="x<%=i%>">
 		<form>
-			<img src="../img/<%= i %>.png" width=50 height=50
-			onClick="location.href='/tree/<%=treeNo%>/<%=list01.get(i).getMessage_no()%>'"
-			>
+			<img src="../img/<%= i %>.png" width=100 height = 100
+			onClick="location.href='/tree/<%=treeNo%>/<%=list01.get(i).getMessage_no()%>'">
 		</form>
+		</div>
 	<% }%>
+	</div>
 	
 	<h3>
 		<%=treename%>의 트리
@@ -76,6 +116,7 @@
 		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
 		<%-- <button onClick="location.href='/tree/<%=treeNo%>'"> 내 트리로 가기 </button> --%>
 	<% } %>
+
   </div>
 
 </body>
