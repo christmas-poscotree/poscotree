@@ -16,6 +16,10 @@ public class Tree {
         this.memberNo = memberNo;
     }
 
+    public Tree(String treeNm) {
+        this.treeNm = treeNm;
+    }
+
     public Tree() {
     }
 

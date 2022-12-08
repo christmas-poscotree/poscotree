@@ -82,7 +82,7 @@
 		<button  class="copy-btn" onclick="copyUrl()">호텔링크 복사하기</button>
 		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
 		
-	<a href="logout'">로그아웃</a>
+	<a href="logout">로그아웃</a>
 
 	<% } else{ // 로그인 안한 사람이 작성%>
   		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
