@@ -168,7 +168,7 @@ top: 100px;
 			<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"/>
 			<div style="position: relative;">
 				<div class="pic">
-					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; font-family: humanbeomseok;">
+					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; ">
 						트리에 들어갈 정보를 입력해주세요!
 					</div>
 						
@@ -177,15 +177,15 @@ top: 100px;
 					</div>
 						
 					<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
-						<input type="text" placeholder="닉네임" class="nick" value="" style="font-weight: bold; font-family: humanbeomseok;">
-						<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1>
-
+						<input type="text" placeholder="닉네임" class="nick" value="" style="font-weight: bold;;">
+						<h1 style="font-size: 20px; font-weight: bold; ">의 트리</h1>
+					</form>
 					<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeNm"></textarea>
 					<br><br>
 					<div class="cinfo">* 트리 이름과 색상은 나중에도 수정할 수 있어요! *</div>
 
 					<br>
-
+					<form>
 						<button type="submit" class="create">트리 만들기</button>
 					</form>
 					
