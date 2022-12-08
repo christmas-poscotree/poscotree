@@ -140,7 +140,7 @@ public class MessageRepository {
 
     public void connection() throws SQLException {
         String url = "jdbc:mysql://127.0.0.1:3306/db01";
-        String user = "root";
+        String user = "vote";
         String pwd = "1234";
 
         try {

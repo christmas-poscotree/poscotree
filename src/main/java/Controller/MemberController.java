@@ -29,6 +29,10 @@ public class MemberController {
         HttpSession session = request.getSession();
         Member loginMember = memberRepository.selectUser(member.getEmail())
                                              .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 회원 정보입니다."));
+        if (!Objects.equals(member.getPassword(), loginMember.getPassword())) {
+             throw new IllegalArgumentException("비밀번호가 유효하지 않습니다.");
+        }
+        
         session.setAttribute("memberNo", loginMember.getMemberNo());
 
         Integer userTreeNo = treeRepository.findUserTree(loginMember.getMemberNo());
