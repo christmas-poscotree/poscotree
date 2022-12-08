@@ -28,8 +28,8 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
     %>
         <h1>메세지를 입력하세요:)</h1>
         <form method="post" action="/tree/<%= treeNo %>/send" accept-charset="UTF-8">
-            <textarea name="message">占쌨쇽옙占쏙옙 : </textarea><br />
-            <input type="text" name="sender" /><br />
+            <textarea rows="10" cols="50" name="message" placeholder="보낼 편지 내용을 입력하세요." > </textarea><br />
+            <textarea rows="1" cols="50" name="sender" placeholder="닉네임을 입력해주세요." ></textarea><br />
             <input type="submit" value="insert" />
         </form>
     </body>
