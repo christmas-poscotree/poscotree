@@ -23,7 +23,6 @@
     flex-direction: column;
     overflow: auto;
 }
-
 .log{
 	width: 281px;
     height: 29px;
@@ -124,7 +123,11 @@
 		<%=treename%>의 트리
 	</h3>
 	<br />
-	<img src="../img/img_tree.png" width=800 height = 800>
+	
+	<div class="treeform" style=" ">
+	<img src="../img/img_tree.png" width=800 height = 800 >
+	</div>
+	
 	<div>
 	<% for(int i = 0; i<list01.size(); i++) {%>
 		<div class="x<%=i%>">
@@ -137,13 +140,12 @@
 	</div>
 	
 	
+	
 
 	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
 		<button  class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
 		<button  class="sign" onclick="copyUrl()">호텔링크 복사하기</button>
-
 	<a href="/logout">로그아웃</a>
-
 	<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
 		<button class="log" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
 		<button class="sign" onClick="location.href='/'"> 나도 트리 만들래!</button>
@@ -151,8 +153,6 @@
 		<button class="sign" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
 		<button class="log" onClick="location.href='/login'"> 내 트리로 가기 </button>
 	<% } %>
-
   </div>
-
 </body>
 </html>
