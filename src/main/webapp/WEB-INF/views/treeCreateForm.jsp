@@ -60,8 +60,7 @@ top: 100px;
     font-family: humanbeomseok;
     line-height: 20px;
     color: white;
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-bottom: 50px;
 }
 
 .introduceText{
@@ -70,6 +69,7 @@ top: 100px;
     border-radius: 2px;
     background: rgb(0, 84, 82);
     color: rgb(255,255,255);
+    border-radius: 5px;
     border-color: transparent transparent rgb(186, 184, 181);
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -109,7 +109,7 @@ top: 100px;
 	    border: 0px;
 	    font: inherit;
 	    vertical-align: baseline;
-	    width: 210px;
+	    width: 350px;
 	    height: 315.16px;
 	    margin-top: 27px;
     }
@@ -128,12 +128,14 @@ top: 100px;
     justify-content: center;
     -webkit-box-align: center;
     margin-top: 22.84px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
     font-family: Nanum Pen Script;
     }
     .nick{
     width: 115px;
     height: 25px;
+    border-radius: 5px;
    	border-radius: 2px;
     background: rgb(0, 84, 82);
     border-bottom-style: solid;
@@ -174,7 +176,7 @@ top: 100px;
 			
 			<div style="position: relative;">
 				<div class="pic">
-					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; ">
+					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; color:black; text-shadow:2px 2px 30px #fffff">
 						트리에 들어갈 정보를 입력해주세요!
 					</div>
 						
