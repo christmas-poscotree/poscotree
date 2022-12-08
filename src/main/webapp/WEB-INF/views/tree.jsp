@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 
 <style type="text/css">
-.background{
+.root{
     padding: 0px;
     border: 0px;
     font: inherit;
@@ -17,12 +17,67 @@
     min-height: calc(var(--vh,1vh) * 100);
     width: 100%;
     margin: 0px auto;
+	
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.background{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    min-height: calc(var(--vh,1vh) * 100);
+    width: 100%;
+    /* margin: 0px auto; */
     background-image: url( "../img/ssnow.gif" );
   	background-size:cover;
     display: flex;
     flex-direction: column;
     overflow: auto;
+    margin: 0px;
+    position: relative;
+  	align-items: center;
+    height: 100%;
 }
+
+.bform{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: column;
+   -webkit-box-align: center;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+    
+}
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(160, 32, 16);
+    color: rgb(255,255,255);
+    width: 281px;
+    border-color: white;
+    border-radius: 10px;
+}
+
+.treeform{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+}
+
 .log{
 	width: 281px;
     height: 29px;
@@ -37,9 +92,9 @@
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-bottom: 30px;
 }
+
 .sign{
 	width: 281px;
     height: 29px;
@@ -54,46 +109,45 @@
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-bottom: 100px;
+   
 }
-			div {
-				width: 500px;
-				height: 400px;
-				position: absolute;
-			}
+
 			div.x0 {
-				top: 300px;
-				left: 360px;
+			position: relative;
+			grid-column: 3/ 5;
 			}
 			div.x1 {
-				top: 380px;
-				left: 270px;
+				position: relative;
+				grid-row-start: 2;
+				grid-column:2/5;
 			}
 			div.x2 {
-				top: 450px;
-				left: 400px;
+				position: relative;
+				grid-row-start: 2;
+				grid-column: 4/5;
 			}
 			div.x3 {
-				top: 570px;
-				left: 260px;
+			grid-row-start: 3;
+				position: relative;
+				grid-column : 2 /  5;
 			}
 			div.x4 {
-				top: 610px;
-				left: 390px;
+			grid-row-start: 3;
+			position: relative;
+			grid-column : 4/  5;
+			
 			}
-			div.x5 {
-				top: 780px;
-				left: 250px;
-			}
-			div.x6 {
-				top: 780px;
-				left: 420px;
-			}
-			div.x7 {
-				top: 780px;
-				left: 500px;
-			}
+.table{
+  margin: 0px;
+    padding: 10px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(6, 30px);
+    grid-template-rows: repeat(3, 100px);
+    margin-top: 90px;
+    gap:35px;
+}
 </style>
 
 <title>My tree</title>
@@ -117,42 +171,53 @@
 	Integer treeNo = (Integer) request.getAttribute("tree_no");
 	Integer treeMemberNo = (Integer) request.getAttribute("nowMemberNo");
 	%>
-
-	<div class="background">
-	<h3>
-		<%=treename%>의 트리
-	</h3>
-	<br />
-	
-	<div class="treeform" style=" ">
-	<img src="../img/img_tree.png" width=800 height = 800 >
-	</div>
-	
-	<div>
-	<% for(int i = 0; i<list01.size(); i++) {%>
-		<div class="x<%=i%>">
-		<form>
-			<img src="../img/<%= i %>.png" width=100 height = 100
-			onClick="location.href='/tree/<%=treeNo%>/<%=list01.get(i).getMessage_no()%>'">
-		</form>
+	<div class="root">
+		<div class="background">
+		
+		<div class ="bform"> 
+			<div class ="title">
+				<%=treename%>의 트리
+			</div>
+			<br />
+			
+			<div class="treeform" style=" ">
+			<img src="../img/img_tree.png" width=700 height = 600 >
+			
+				<div class="table">
+				<% for(int i = 0; i<list01.size(); i++) {%>
+					<div class="x<%=i%>" style="cursor: pointer;">
+					<form>
+						<img src="../img/<%= i %>.png" width=100 height = 100
+						onClick="location.href='/tree/<%=treeNo%>/<%=list01.get(i).getMessage_no()%>'">
+					</form>
+					</div>
+				<% }%>
+				</div>
+			</div>
 		</div>
-	<% }%>
-	</div>
-	
-	
-	
-
-	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
-		<button  class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
-		<button  class="sign" onclick="copyUrl()">호텔링크 복사하기</button>
-	<a href="/logout">로그아웃</a>
-	<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
-		<button class="log" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
-		<button class="sign" onClick="location.href='/'"> 나도 트리 만들래!</button>
-	<% } else { // 로그인한 사람인데 다른 사람 트리 볼 때 %>
-		<button class="sign" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
-		<button class="log" onClick="location.href='/login'"> 내 트리로 가기 </button>
-	<% } %>
-  </div>
+		
+		
+		<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
+			<div class='bform'>
+			<button  type="submit" class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'"style="cursor: pointer;">편지 확인하기</button>
+			<button  type="submit" class="sign" onClick="copyUrl()"style="cursor: pointer;">호텔링크 복사하기</button>
+		<a href="/logout">로그아웃</a>
+		</div>
+		<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
+			<div class='bform'>
+			<button type="submit" class="log" onClick="location.href='/tree/<%= treeNo%>/MessageForm'" > 트리 꾸며주기</button>
+			<button type="submit" class="sign" onClick="location.href='/'" style="cursor: pointer;"> 나도 트리 만들래!</button>
+			</div>
+		<% } else { // 로그인한 사람인데 다른 사람 트리 볼 때 %>
+			<div class='bform'>
+			<button type="submit" class="sign" onClick="location.href='/tree/<%= treeNo%>/MessageForm'"style="cursor: pointer;"> 트리 꾸며주기</button>
+			<button type="submit" class="log" onClick="location.href='/login'"style="cursor: pointer;"> 내 트리로 가기 </button>
+			</div>
+		<% } %>
+		
+		
+	  </div>
+	  
+	 </div>
 </body>
 </html>

@@ -50,8 +50,8 @@ pageEncoding="UTF-8"%>
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 .sign{
 	width: 281px;
@@ -67,8 +67,7 @@ pageEncoding="UTF-8"%>
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-top: 10px;
 }
 .imag{
 	text-align: center;
