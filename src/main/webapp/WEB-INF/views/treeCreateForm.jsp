@@ -11,10 +11,15 @@
     border: 0px;
     font: inherit;
     vertical-align: baseline;
-    min-height: calc(var(--vh,1vh) * 100);
-    width: 768px;
+     min-height: calc(var(--vh,1vh) * 100); 
+    /* width: 768px; */
+    width: 100%;
     margin: 0px auto;
-    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    /* background: linear-gradient(#A5D8FA 5%, #E8F5FF, #E0EBFF,  #EBFBFF); E1F6FA	#3296D7*/
+  	background-image: url( "../img/ssnow.gif" );
+  	background-size:cover;
+    /*background: linear-gradient(#E1F6FA 5%, #3296D7,#1BBC9B,   #1BBC9B,  #1BBC9B);  */  
+
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -48,8 +53,8 @@ top: 100px;
     border-style: dashed;
     border-color: white;
     border-radius: 2px;
-    background: rgb(0, 84, 82);
-    outline: rgb(0, 84, 82) solid 9px;
+    background-color: rgb(175, 32, 16);
+    outline: rgb(175, 32, 16) solid 9px;
     font-weight: 400;
     font-size: 14px;
     font-family: humanbeomseok;
@@ -62,8 +67,9 @@ top: 100px;
 .introduceText{
 	width: 230px;
     min-height: 93px;
-    background-color: rgb(252, 244, 233);
-    color: rgb(0, 0, 0);
+    border-radius: 2px;
+    background: rgb(0, 84, 82);
+    color: rgb(255,255,255);
     border-color: transparent transparent rgb(186, 184, 181);
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -73,7 +79,6 @@ top: 100px;
     font-weight: 400;
     font-size: 18px;
     line-height: 25px;
-    font-family: humanbeomseok;
     resize: none;
     white-space: pre-wrap;
 
@@ -124,13 +129,13 @@ top: 100px;
     -webkit-box-align: center;
     margin-top: 22.84px;
     margin-bottom: 20px;
+    font-family: Nanum Pen Script;
     }
     .nick{
-        width: 115px;
+    width: 115px;
     height: 25px;
-    background-color: rgb(252, 244, 233);
-    color: rgb(0, 0, 0);
-    border-color: transparent transparent rgb(186, 184, 181);
+   	border-radius: 2px;
+    background: rgb(0, 84, 82);
     border-bottom-style: solid;
     border-bottom-width: 1px;
     padding-left: 10px;
@@ -139,8 +144,20 @@ top: 100px;
     font-size: 18px;
     line-height: 25px;
     font-weight: bold;
-    font-family: humanbeomseok;
+    font-family: Nanum Pen Script;
     }
+     textarea::placeholder {
+        color: white;
+        font-weight: italic;
+        opacity: 0.33;
+        font-family: Nanum Pen Script;
+      }
+      input::placeholder {
+        color: white;
+        font-weight: italic;
+        opacity: 0.33;
+        font-family: Nanum Pen Script;
+      }
 
 }
 </style>
@@ -152,9 +169,9 @@ top: 100px;
 </head>
 <body>
 
-	<div class="background">
-		<div class="bg_divide" style="background: white; position: relative;">
-			<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"/>
+	<div class="background" >
+		<div class="bg_divide" style="position: relative;">
+			
 			<div style="position: relative;">
 				<div class="pic">
 					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; ">
@@ -166,10 +183,13 @@ top: 100px;
 					</div>
 
 						<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
-							<input type="text" placeholder="닉네임" class="nick" name="treeNm" style="font-weight: bold; font-family: humanbeomseok;" required>
-							<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1>
-
-						<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea>
+							<input type="text" placeholder="닉네임" class="nick" name="treeNm" style="font-weight: bold; " required>
+							<h1 style="font-size: 20px; font-weight: bold; ">의 트리</h1></br></br>
+						</form>
+						<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea><br><br>
+						<br>
+						<form>
+						<br>
 							<button type="submit" class="create">트리 만들기</button>
 						</form>
 					

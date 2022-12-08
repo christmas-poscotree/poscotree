@@ -15,9 +15,10 @@
     font: inherit;
     vertical-align: baseline;
     min-height: calc(var(--vh,1vh) * 100);
-    width: 768px;
+    width: 100%;
     margin: 0px auto;
-    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    background-image: url( "../img/ssnow.gif" );
+  	background-size:cover;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -84,7 +85,10 @@
 	%>
 
 	<div class="background">
-	<h6>포스코ICT 4기 Tree</h6>
+	<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 50%;"/>
+	<h3>
+		<%=treename%>의 트리
+	</h3>
 	<br />
 	<img src="../img/img_tree.png" width=800 height = 800>
 	<div>
@@ -98,9 +102,7 @@
 	<% }%>
 	</div>
 	
-	<h3>
-		<%=treename%>의 트리
-	</h3>
+	
 
 	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
 		<button  onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
