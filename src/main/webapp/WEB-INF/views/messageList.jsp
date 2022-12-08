@@ -35,9 +35,10 @@ function popOpen() {
     font: inherit;
     vertical-align: baseline;
     min-height: calc(var(--vh,1vh) * 100);
-    width: 768px;
+    width: 100%;
     margin: 0px auto;
-    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    background-image: url( "/img/ssnow.gif" );
+  	background-size:cover;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -45,7 +46,7 @@ function popOpen() {
 
 #customers {
   font-family: Arial, Helvetica, sans-serif;
-  width: 90%;
+  width: 50%;
   margin: 200px auto;
   border-collapse: collapse;
   table-layout: fixed;
@@ -102,7 +103,7 @@ function popOpen() {
     color: white;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 .btn {
