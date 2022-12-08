@@ -23,10 +23,11 @@ public class TreeController {
     @RequestMapping("/tree/{tree_no}")
     public String funcTree(@PathVariable("tree_no") Integer treeNo, Model model) throws SQLException {
         // TODO 트리 메인
-        LinkedList<TreeDTO> treeDTOS = dao.selectlistMessage(treeNo);
+        LinkedList<TreeDTO> treeDTOS = dao.selectlistMessage1(treeNo);
         String treeName = dao.findTreeName(treeNo);
         model.addAttribute("list", treeDTOS);
         model.addAttribute("tree_nm", treeName);
+        model.addAttribute("tree_no", treeNo);
 
         return "tree";
     }

@@ -168,7 +168,7 @@ top: 100px;
 			<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"/>
 			<div style="position: relative;">
 				<div class="pic">
-					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; font-family: humanbeomseok;">
+					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; ">
 						트리에 들어갈 정보를 입력해주세요!
 					</div>
 						
