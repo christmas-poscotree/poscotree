@@ -46,14 +46,15 @@ public class MessageController {
 	@RequestMapping("/tree/{tree_no}/{message_no}")
 	public String func3(
 			Model model, 
+			@PathVariable("tree_no") String tree_no,
 			@PathVariable("message_no") String message_no
 			) throws SQLException {
 //		message_no = message1;
 		String message = "message";
 		String sender = "sender";
 		System.out.println(message_no);
-		message = dao.select(message_no).getMessage();
-		sender = dao.select(message_no).getSender();
+		message = dao.select(tree_no, message_no).getMessage();
+		sender = dao.select(tree_no, message_no).getSender();
 		
 		System.out.println(message);
 		System.out.println(sender);
@@ -68,7 +69,7 @@ public class MessageController {
 	public String func3(TreeDTO dto) throws SQLException {
 		System.out.println("insert function call");
 		dao.insert(dto);
-		return "messageForm";
+		return "tree";
 	}
 	
 	@RequestMapping("/tree/{tree_no}/message-list}")
@@ -77,7 +78,7 @@ public class MessageController {
 		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
 		ll = dao.selectlistMessage(tree_no);
 		model.addAttribute("list", ll);
-		return "tree";
+		return "messageList";
 	}
 	
 }

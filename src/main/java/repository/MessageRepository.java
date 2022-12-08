@@ -14,18 +14,19 @@ public class MessageRepository {
 	Connection connection = null;
 	ResultSet rs = null;
 	String field;
-	public TreeDTO select(String message_no) throws SQLException {
+	public TreeDTO select(String tree_no, String message_no) throws SQLException {
 //		this.field = field;
 		TreeDTO value = null;
 		connection();
 		
-		String sql = ("select * from message where message_no = ?");
+		String sql = ("select * from message where tree_no = ? and message_no = ?");
 		PreparedStatement pre = connection.prepareStatement(sql);
-		pre.setString(1, message_no);
+		pre.setString(1, tree_no);
+		pre.setString(2, message_no);
 		System.out.println("field :" + field);
 		rs = pre.executeQuery();
 		while(rs.next()) {
-			value = new TreeDTO(rs.getString(3), rs.getString(4));
+			value = new TreeDTO(rs.getString(1), rs.getString(3), rs.getString(4));
 			System.out.println("rs -----> value");
 		}
 		System.out.println("value : " + value);
@@ -41,13 +42,13 @@ public class MessageRepository {
         int i = 0;
         connection();
 
-        String sql = ("select * from message where tree_no = ?");
+        String sql = ("select * from message where tree_no = ? order by message_no desc");
         PreparedStatement pre = connection.prepareStatement(sql);
 		pre.setInt(1, tree_no);
         System.out.println("field :" + field);
         rs = pre.executeQuery();
         while (rs.next()) {
-            ll.add(new TreeDTO(rs.getString(3), rs.getString(4)));
+            ll.add(new TreeDTO(rs.getString(1), rs.getString(3), rs.getString(4)));
             System.out.println("rs -----> value");
         }
 //		System.out.println("value : " + value);
@@ -106,8 +107,8 @@ public class MessageRepository {
     }
 
     public void connection() throws SQLException {
-        String url = "jdbc:mysql://192.168.0.198:3306/db01";
-        String user = "vote";
+        String url = "jdbc:mysql://127.0.0.1:3306/db01";
+        String user = "root";
         String pwd = "1234";
 
         try {
