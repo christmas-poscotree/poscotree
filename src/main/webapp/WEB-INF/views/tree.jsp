@@ -159,6 +159,25 @@
 				 alert("주소가 복사되었습니다!");
 				})
 			}
+		
+		function popOpen() {
+
+		    var modalPop = $('.modal-wrap');
+		    var modalBg = $('.modal-bg'); 
+
+		    $(modalPop).show();
+		    $(modalBg).show();
+
+		}
+
+		 function popClose() {
+		   var modalPop = $('.modal-wrap');
+		   var modalBg = $('.modal-bg');
+
+		   $(modalPop).hide();
+		   $(modalBg).hide();
+
+		}
 	</script>
 </head>
 
