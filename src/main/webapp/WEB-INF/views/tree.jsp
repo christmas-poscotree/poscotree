@@ -23,6 +23,41 @@
     flex-direction: column;
     overflow: auto;
 }
+
+.log{
+	width: 281px;
+    height: 29px;
+    border-width: 1.5px;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 2px;
+    background-color: rgb(175, 32, 16);
+    outline: rgb(175, 32, 16) solid 9px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Nanum Pen Script;
+    line-height: 20px;
+    color: white;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.sign{
+	width: 281px;
+    height: 29px;
+    border-width: 1.5px;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 2px;
+    background: rgb(0, 84, 82);
+    outline: rgb(0, 84, 82) solid 9px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Nanum Pen Script;
+    line-height: 20px;
+    color: white;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
 			div {
 				width: 500px;
 				height: 400px;
@@ -85,7 +120,6 @@
 	%>
 
 	<div class="background">
-	<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 50%;"/>
 	<h3>
 		<%=treename%>의 트리
 	</h3>
@@ -105,16 +139,16 @@
 	
 
 	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
-		<button  onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
-		<button  class="copy-btn" onclick="copyUrl()">호텔링크 복사하기</button>
+		<button  class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
+		<button  class="sign" onclick="copyUrl()">호텔링크 복사하기</button>
 
 	<a href="/logout">로그아웃</a>
 
 	<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
-  		<button class="copy-btn" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
-		<button onClick="location.href='/login'"> 나도 트리 만들래!</button>
+  		<button class="log" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
+		<button class="sign" onClick="location.href='/login'"> 나도 트리 만들래!</button>
 	<% } else { // 로그인한 사람인데 다른 사람 트리 볼 때 %>
-		<button class="copy-btn" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
+		<button class="log" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
 		<%-- <button onClick="location.href='/tree/<%=treeNo%>'"> 내 트리로 가기 </button> --%>
 	<% } %>
 

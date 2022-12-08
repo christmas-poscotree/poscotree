@@ -58,7 +58,7 @@
     <body>
     <div>
     <header>
-            <h2>Login</h2>
+            <h2>로그인</h2>
         </header>
         <form method="post" action="/login">
 			<input type="email" name="email" required class="in" placeholder="이메일"/> <br>   
