@@ -6,16 +6,35 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+
+<style type="text/css">
+.background{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    min-height: calc(var(--vh,1vh) * 100);
+    width: 768px;
+    margin: 0px auto;
+    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+</style>
 <title>MessageList</title>
 </head>
 <body>
+<div class="background">
 	<%
 		LinkedList<TreeDTO> list01 = (LinkedList<TreeDTO>)request.getAttribute("list");
 	%>
+
+	</div>
 	<table border = 1>
 		<tr>
 			<td> Message </td>
-			<td> º¸³½ »ç¶÷</td>
+			<td> ë³´ë‚¸ ì‚¬ëŒ</td>
 		</tr>
 		<% for(int i = 0; i < list01.size(); i++) {%>
 		<tr>
@@ -24,6 +43,6 @@
 		</tr>
 		<% } %>
 	</table>
-	<a href = "/login"> Æ®¸®·Î µ¹¾Æ°¡±â </a>
+	<a href = "/login"> íŠ¸ë¦¬ë¡œ ëŒì•„ê°€ê¸° </a>
 </body>
 </html>
