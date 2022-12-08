@@ -164,19 +164,17 @@ top: 100px;
 					<div class="imag">
 						<img src="../img/img_tree.png" class="pic_tree"/>
 					</div>
-						
-					<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
-						<input type="text" placeholder="닉네임" class="nick" value="" name="treeNm" style="font-weight: bold; font-family: humanbeomseok;" required>
-						<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1>
-					</form>
-					
-					<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea>
-					<br>
 
-					<br>
-					<form>			
-						<button type="submit" class="create">트리 만들기</button>
-					</form>
+						<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
+							<input type="text" placeholder="닉네임" class="nick" name="treeNm" style="font-weight: bold; font-family: humanbeomseok;" required>
+							<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1></br></br>
+
+						<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea><br><br>
+						<br>
+
+						<br>
+							<button type="submit" class="create">트리 만들기</button>
+						</form>
 					
 				</div>
 						

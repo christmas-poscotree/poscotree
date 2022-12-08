@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import repository.MessageRepository;
 
 @Controller
@@ -22,11 +24,12 @@ public class TreeController {
 
     @RequestMapping("/tree/{tree_no}")
     public String funcTree(@PathVariable("tree_no") Integer treeNo, Model model) throws SQLException {
-        // TODO 트리 메인
         LinkedList<TreeDTO> treeDTOS = dao.selectlistMessage1(treeNo);
-        String treeName = dao.findTreeName(treeNo);
+        Tree treeInfo = dao.findTree(treeNo).orElseThrow(() -> new IllegalArgumentException("트리 번호가 유효하지 않습니다."));
+
+        model.addAttribute("nowMemberNo", treeInfo.getMemberNo());
         model.addAttribute("list", treeDTOS);
-        model.addAttribute("tree_nm", treeName);
+        model.addAttribute("tree_nm", treeInfo.getTreeNm());
         model.addAttribute("tree_no", treeNo);
 
         return "tree";
@@ -47,4 +50,11 @@ public class TreeController {
         Integer userTreeNo = dao.findUserTree(memberNo);
         return "redirect:/tree/" + userTreeNo;
     }
+
+    @ExceptionHandler({Exception.class})
+    public String error(Exception e, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("error", e.getMessage());
+        return "redirect:/error";
+    }
+
 }

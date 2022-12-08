@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.Optional;
 
 public class MessageRepository {
 	
@@ -125,17 +126,22 @@ public class MessageRepository {
         pre.executeUpdate();
     }
 
-    public String findTreeName(Integer treeNo) throws SQLException {
+    public Optional<Tree> findTree(Integer treeNo) throws SQLException {
         connection();
 
-        String sql = "select tree_nm from tree where tree_no = ?";
+        String sql = "select * from tree where tree_no = ?";
 
         PreparedStatement pre = connection.prepareStatement(sql);
         pre.setInt(1, treeNo);
         rs = pre.executeQuery();
 
-        if (!rs.next()) return null;
-        return rs.getString("tree_nm");
+        if (!rs.next()) return Optional.empty();
+        return Optional.of(
+            new Tree(rs.getInt("tree_no"),
+                     rs.getString("tree_nm"),
+                     rs.getString("tree_info"),
+                     rs.getInt("member_no"))
+        );
     }
 
     public void connection() throws SQLException {

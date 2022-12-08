@@ -32,7 +32,7 @@ public class MemberController {
         if (!Objects.equals(member.getPassword(), loginMember.getPassword())) {
              throw new IllegalArgumentException("비밀번호가 유효하지 않습니다.");
         }
-        
+
         session.setAttribute("memberNo", loginMember.getMemberNo());
 
         Integer userTreeNo = treeRepository.findUserTree(loginMember.getMemberNo());

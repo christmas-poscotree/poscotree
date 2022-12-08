@@ -6,12 +6,14 @@ import java.util.LinkedList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import domain.TreeDTO;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import repository.MessageRepository;
 
 
@@ -73,6 +75,12 @@ public class MessageController {
 		ll = dao.selectlistMessage(tree_no);
 		model.addAttribute("list", ll);
 		return "messageList";
+	}
+
+	@ExceptionHandler({Exception.class})
+	public String error(Exception e, RedirectAttributes redirectAttributes) {
+		redirectAttributes.addFlashAttribute("error", e.getMessage());
+		return "redirect:/error";
 	}
 	
 }
