@@ -83,11 +83,5 @@ public class MessageController {
 		model.addAttribute("list", ll);
 		return "messageList";
 	}
-
-	@ExceptionHandler({Exception.class})
-	public String error(Exception e, RedirectAttributes redirectAttributes) {
-		redirectAttributes.addFlashAttribute("error", e.getMessage());
-		return "redirect:/error";
-	}
 	
 }
