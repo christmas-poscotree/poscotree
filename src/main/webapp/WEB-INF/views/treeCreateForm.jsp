@@ -122,7 +122,7 @@ top: 100px;
     font: inherit;
     vertical-align: baseline;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     place-items: center;
     -webkit-box-pack: center;
     justify-content: center;
@@ -184,11 +184,9 @@ top: 100px;
 
 						<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
 							<input type="text" placeholder="닉네임" class="nick" name="treeNm" style="font-weight: bold; " required>
-							<h1 style="font-size: 20px; font-weight: bold; ">의 트리</h1></br></br>
-						</form>
+							<h1 style="font-size: 0px; font-weight: bold; ">트리</h1></br></br>
 						<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeInfo" required></textarea><br><br>
 						<br>
-						<form>
 						<br>
 							<button type="submit" class="create">트리 만들기</button>
 						</form>
