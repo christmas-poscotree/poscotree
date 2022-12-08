@@ -9,13 +9,62 @@
 <html>
     <head>
         <title>Title</title>
+        <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
+        <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        * {
+            font-family: Nanum Pen Script;
+        }
+
+        body {
+            background-color: #1BBC9B;
+        }
+
+        div {
+            margin: 250px auto;
+            width: 300px;
+            background-color: #EEEFF1;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            background-color: #1BBC9B;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: #9B9B9B;
+            font-size: 12px;
+        }
+        </style>
     </head>
     <body>
-        <h1>회원가입</h1>
+	<div>
+	    <header>
+            <h2>회원가입</h2>
+        </header>
         <form method="post" action="/signup">
-            이메일 <input type="email" , name="email" required/> <br>
-            비밀번호 <input type="password" , name="password" required/> <br>
-            <input type="submit" value="회원가입 ">
+             <input type="email" name="email" required class="in" placeholder="이메일"/> <br>
+            <input type="password" name="password" required class="in" placeholder="비밀번호"/> <br>
+            <input type="submit" value="회원가입 " id="btn">
         </form>
+	</div>
     </body>
 </html>

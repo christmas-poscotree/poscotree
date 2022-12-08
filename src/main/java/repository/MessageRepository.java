@@ -105,6 +105,7 @@ public class MessageRepository {
 
     public Integer findUserTree(Integer memberNo) throws SQLException {
         connection();
+        System.out.println(memberNo);
 
         String sql = "select * from tree where member_no = ?";
         PreparedStatement pre = connection.prepareStatement(sql);

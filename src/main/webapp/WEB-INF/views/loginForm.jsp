@@ -14,7 +14,7 @@
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
         * {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: Nanum Pen Script;
         }
 
         body {
@@ -58,7 +58,7 @@
     <body>
     <div>
     <header>
-            <h2>Login</h2>
+            <h2>로그인</h2>
         </header>
         <form method="post" action="/login">
 			<input type="email" name="email" required class="in" placeholder="이메일"/> <br>   

@@ -15,12 +15,48 @@
     font: inherit;
     vertical-align: baseline;
     min-height: calc(var(--vh,1vh) * 100);
-    width: 768px;
+    width: 100%;
     margin: 0px auto;
-    background: linear-gradient(rgb(245, 200, 184) 5%, rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233), rgb(252, 244, 233));
+    background-image: url( "../img/ssnow.gif" );
+  	background-size:cover;
     display: flex;
     flex-direction: column;
     overflow: auto;
+}
+
+.log{
+	width: 281px;
+    height: 29px;
+    border-width: 1.5px;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 2px;
+    background-color: rgb(175, 32, 16);
+    outline: rgb(175, 32, 16) solid 9px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Nanum Pen Script;
+    line-height: 20px;
+    color: white;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.sign{
+	width: 281px;
+    height: 29px;
+    border-width: 1.5px;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 2px;
+    background: rgb(0, 84, 82);
+    outline: rgb(0, 84, 82) solid 9px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Nanum Pen Script;
+    line-height: 20px;
+    color: white;
+    margin-top: 9px;
+    margin-bottom: 9px;
 }
 			div {
 				width: 500px;
@@ -66,11 +102,10 @@
 		let nowUrl = window.location.href;
 		
 		function copyUrl(){ 
-		  //nowUrl 변수에 담긴 주소를
-		  	navigator.clipboard.writeText(nowUrl).then(res=>{
-			  alert("주소가 복사되었습니다!");
-			})
-		}
+			  	navigator.clipboard.writeText(nowUrl).then(res=>{
+				 alert("주소가 복사되었습니다!");
+				})
+			}
 	</script>
 </head>
 
@@ -85,7 +120,9 @@
 	%>
 
 	<div class="background">
-	<h6>포스코ICT 4기 Tree</h6>
+	<h3>
+		<%=treename%>의 트리
+	</h3>
 	<br />
 	<img src="../img/img_tree.png" width=800 height = 800>
 	<div>
@@ -99,13 +136,11 @@
 	<% }%>
 	</div>
 	
-	<h3>
-		<%=treename%>의 트리
-	</h3>
+	
 
 	<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
-		<button  onClick="location.href='/tree/<%=memberNo%>/message-list'">편지 확인하기</button>
-		<button  class="copy-btn" onclick="copyUrl()">호텔링크 복사하기</button>
+		<button  class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'">편지 확인하기</button>
+		<button  class="sign" onclick="copyUrl()">호텔링크 복사하기</button>
 
 	<a href="/logout">로그아웃</a>
 
@@ -114,7 +149,7 @@
 		<button onClick="location.href='/'"> 나도 트리 만들래!</button>
 	<% } else { // 로그인한 사람인데 다른 사람 트리 볼 때 %>
 		<button class="copy-btn" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
-		 <button onClick="location.href='/login'"> 내 트리로 가기 </button>
+		<button onClick="location.href='/login'"> 내 트리로 가기 </button>
 	<% } %>
 
   </div>

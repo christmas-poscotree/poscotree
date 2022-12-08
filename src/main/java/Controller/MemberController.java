@@ -45,6 +45,7 @@ public class MemberController {
         }
 
         session.setAttribute("memberNo", loginMember.getMemberNo());
+        System.out.println("memberNumber : " + loginMember.getMemberNo());
 
         Integer userTreeNo = treeRepository.findUserTree(loginMember.getMemberNo());
         if (Objects.isNull(userTreeNo)) {
