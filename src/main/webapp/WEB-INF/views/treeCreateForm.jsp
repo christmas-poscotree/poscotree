@@ -165,7 +165,7 @@ top: 100px;
 
 	<div class="background">
 		<div class="bg_divide" style="background: white; position: relative;">
-			<img src="img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"/>
+			<img src="../img/snow.gif" height="308" width="768" style="pointer-events: none; background-color: #fffff; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"/>
 			<div style="position: relative;">
 				<div class="pic">
 					<div style="margin-top: 95px; height: 29px; font-size: 22px; font-weight: bold; font-family: humanbeomseok;">
@@ -173,22 +173,20 @@ top: 100px;
 					</div>
 						
 					<div class="imag">
-						<img src="img/img_tree.png" class="pic_tree"/>
+						<img src="../img/img_tree.png" class="pic_tree"/>
 					</div>
 						
-					<form class="text">
+					<form class="text" action="/tree/create" method="post" accept-charset="UTF-8">
 						<input type="text" placeholder="닉네임" class="nick" value="" style="font-weight: bold; font-family: humanbeomseok;">
 						<h1 style="font-size: 20px; font-weight: bold; font-family: humanbeomseok;">의 트리</h1>
-					</form>
-					
-					<textarea rows="5" cols="33" placeholder="내 호텔을 소개해 주세요!" class="introduceText"></textarea>
+
+					<textarea rows="5" cols="33" placeholder="내 트리를 소개해 주세요!" class="introduceText" name="treeNm"></textarea>
 					<br><br>
-					<div class="cinfo">* 호텔 이름과 색상은 나중에도 수정할 수 있어요! *</div>
-					
+					<div class="cinfo">* 트리 이름과 색상은 나중에도 수정할 수 있어요! *</div>
+
 					<br>
-					
-					<form>
-						<button class="create">트리 만들기</button>
+
+						<button type="submit" class="create">트리 만들기</button>
 					</form>
 					
 				</div>
