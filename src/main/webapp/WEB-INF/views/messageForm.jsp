@@ -186,10 +186,10 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
     	String treeNo = (String) request.getAttribute("tree_No");
     %>
 
-        <h1>¸Þ¼¼Áö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:)</h1>
+        <h1>ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½:)</h1>
         <form method="post" action="/tree/<%= treeNo %>/send" accept-charset="UTF-8">
-            <textarea rows="10" cols="50" class="log" name="message" placeholder="¸Þ¼¼Áö ÀÛ¼ºÇÏ¼¼¿ä"></textarea><br />
-            <textarea rows="1" cols="50" class="log" name="sender" placeholder="º¸³»´Â »ç¶÷¾²¼¼¿ä"></textarea><br />
+            <textarea rows="10" cols="50" class="log" name="message" placeholder="ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½"></textarea><br />
+            <textarea rows="1" cols="50" class="log" name="sender" placeholder="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"></textarea><br />
              <input style = "margin-left : 100px"class="sign" type="submit" value="insert" />
         </form>
         </div>

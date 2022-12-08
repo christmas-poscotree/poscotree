@@ -57,7 +57,7 @@ top: 100px;
     outline: rgb(175, 32, 16) solid 9px;
     font-weight: 400;
     font-size: 14px;
-    font-family: humanbeomseok;
+    font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
     margin-bottom: 50px;
