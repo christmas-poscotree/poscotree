@@ -22,23 +22,27 @@
     overflow: auto;
 }
 </style>
-<title>Insert title here</title>
+<title>MessageList</title>
 </head>
 <body>
 <div class="background">
 	<%
 		LinkedList<TreeDTO> list01 = (LinkedList<TreeDTO>)request.getAttribute("list");
-		out.println(list01.get(0).getMessage() + " " + list01.get(0).getSender());
-		out.println("<br/>");
-		out.println(list01.get(1).getMessage() + " " + list01.get(1).getSender());
-		out.println("<br/>");
-		out.println(list01.get(2).getMessage() + " " + list01.get(2).getSender());
-		out.println("<br/>");
-		out.println(list01.get(3).getMessage() + " " + list01.get(3).getSender());
-		out.println("<br/>");
-		out.println(list01.get(4).getMessage() + " " + list01.get(4).getSender());
-		out.println("<br/>");
 	%>
+
 	</div>
+	<table border = 1>
+		<tr>
+			<td> Message </td>
+			<td> 보낸 사람</td>
+		</tr>
+		<% for(int i = 0; i < list01.size(); i++) {%>
+		<tr>
+			<td> <%=list01.get(i).getMessage() %> </td>
+			<td> <%=list01.get(i).getSender() %> </td>
+		</tr>
+		<% } %>
+	</table>
+	<a href = "/login"> 트리로 돌아가기 </a>
 </body>
 </html>
