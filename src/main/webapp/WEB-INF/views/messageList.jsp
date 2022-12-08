@@ -258,7 +258,7 @@ function popOpen() {
 	</div>
 	
 	<!-- 여기는 모달 시작 -->
-	<button type='button' id="modal_btn" class="sign modal_btn">모달창아 나와랏</button>
+	<button type='button' id="modal_btn" class="sign modal_btn">이용방법</button>
 <div class="black_bg"></div>
 <div class="modal_wrap">
     <div class="modal_close"><a href="#">close</a></div>
