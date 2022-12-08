@@ -49,8 +49,8 @@ public class MemberRepository {
     }
 
     public void connection() throws SQLException {
-        String url = "jdbc:mysql://127.0.0.1/db01";
-        String user = "root";
+        String url = "jdbc:mysql://192.168.0.198:3306/db01";
+        String user = "vote";
         String pwd = "1234";
 
         try {
