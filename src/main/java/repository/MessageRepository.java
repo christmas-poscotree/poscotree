@@ -55,6 +55,28 @@ public class MessageRepository {
 
         return ll;
     }
+	
+	public LinkedList<TreeDTO> selectlistMessage1(Integer tree_no) throws SQLException {
+		
+//		this.field = field;
+		String[] value = null;
+		LinkedList<TreeDTO> ll = new LinkedList<TreeDTO>();
+		int i = 0;
+		connection();
+		
+		String sql = ("select * from message where tree_no = ? order by message_no desc limit 5");
+		PreparedStatement pre = connection.prepareStatement(sql);
+		pre.setInt(1, tree_no);
+		System.out.println("field :" + field);
+		rs = pre.executeQuery();
+		while (rs.next()) {
+			ll.add(new TreeDTO(rs.getString(1), rs.getString(3), rs.getString(4)));
+			System.out.println("rs -----> value");
+		}
+//		System.out.println("value : " + value);
+		
+		return ll;
+	}
 
     public void insert(TreeDTO dto) throws SQLException {
         connection();
