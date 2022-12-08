@@ -27,6 +27,7 @@ public class TreeController {
         LinkedList<TreeDTO> treeDTOS = dao.selectlistMessage1(treeNo);
         Tree treeInfo = dao.findTree(treeNo).orElseThrow(() -> new IllegalArgumentException("트리 번호가 유효하지 않습니다."));
 
+        System.out.println("트리 이름 : "  + treeInfo.getTreeNm());
         model.addAttribute("nowMemberNo", treeInfo.getMemberNo());
         model.addAttribute("list", treeDTOS);
         model.addAttribute("tree_nm", treeInfo.getTreeNm());
@@ -45,7 +46,7 @@ public class TreeController {
         HttpSession session = request.getSession();
         Integer memberNo = (Integer) session.getAttribute("memberNo");
         tree.setMemberNo(memberNo);
-        System.out.println(tree);
+        System.out.println(tree.getTreeNm());
         dao.createTree(tree);
         Integer userTreeNo = dao.findUserTree(memberNo);
         return "redirect:/tree/" + userTreeNo;

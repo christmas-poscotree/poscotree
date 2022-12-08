@@ -110,10 +110,10 @@
 	<a href="/logout">로그아웃</a>
 
 	<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
-  		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
+  		<button class="copy-btn" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
 		<button onClick="location.href='/login'"> 나도 트리 만들래!</button>
 	<% } else { // 로그인한 사람인데 다른 사람 트리 볼 때 %>
-		<button class="copy-btn" onclick="location.href='/t1'"> 트리 꾸며주기</button>
+		<button class="copy-btn" onclick="location.href='/tree/<%= treeNo%>/MessageForm'"> 트리 꾸며주기</button>
 		<%-- <button onClick="location.href='/tree/<%=treeNo%>'"> 내 트리로 가기 </button> --%>
 	<% } %>
 

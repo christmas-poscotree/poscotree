@@ -14,7 +14,6 @@ public class MemberRepository {
 
     public Optional<Member> selectUser(String email) throws SQLException {
         connection();
-        System.out.println("이메일 : " + email);
         PreparedStatement pre = connection.prepareStatement("select * from member where email = ?");
         pre.setString(1, email);
         rs = pre.executeQuery();
