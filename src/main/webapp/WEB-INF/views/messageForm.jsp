@@ -37,10 +37,12 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
     line-height: 20px;
     color: white;
     margin-left: 50px;
+    cursor: pointer;
 }
 
 .btn {
 	margin : 0px auto;
+	cursor: pointer;
 }
 
 .caption {

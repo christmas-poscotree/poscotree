@@ -46,6 +46,7 @@
             background-color: #1BBC9B;
             margin-bottom: 30px;
             color: white;
+            cursor: pointer;
         }
 
         a {

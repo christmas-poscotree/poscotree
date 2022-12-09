@@ -53,6 +53,24 @@
     font-size: 12px;
     color: rgb(110, 110, 110);
     }
+    
+.log {
+	width: 281px;
+    height: 29px;
+    border-width: 1.5px;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 2px;
+    background-color: rgb(175, 32, 16);
+    outline: rgb(175, 32, 16) solid 9px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Nanum Pen Script;
+    line-height: 20px;
+    color: white;
+    margin: -255px auto;
+    cursor: pointer;
+}    
 
 </style>
 <title>messageView</title>
@@ -66,10 +84,10 @@
 	
 	<div class="send">
 		<h3>From. ${sender }</h3>
-	
 	</div>
 	</div>
 	</div>
+	<button type="button" class="log" onClick="history.go(-1)" style="cursor: pointer;">이전으로</button>
 	<%
 		String message = (String) request.getAttribute("message");
 		String name = (String) request.getAttribute("sender");

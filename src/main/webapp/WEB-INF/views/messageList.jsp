@@ -90,6 +90,7 @@
 	color: white;
 	margin-top: 9px;
 	margin-bottom: 9px;
+	cursor: pointer;
 }
 
 .sign2 {
@@ -108,6 +109,7 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 120px;
+	cursor: pointer;
 }
 
 .btn {

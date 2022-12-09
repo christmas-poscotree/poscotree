@@ -61,6 +61,7 @@ top: 100px;
     line-height: 20px;
     color: white;
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 .introduceText{

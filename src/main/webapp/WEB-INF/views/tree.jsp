@@ -94,6 +94,7 @@
     line-height: 20px;
     color: white;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .sign{
@@ -111,6 +112,7 @@
     line-height: 20px;
     color: white;
     margin-bottom: 30px;
+    cursor: pointer;
    
 }
 

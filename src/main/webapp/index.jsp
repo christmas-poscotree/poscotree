@@ -137,6 +137,7 @@
 	color: white;
 	margin-top: 50px;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 
 .log2 {
@@ -156,6 +157,7 @@
 	margin-top: 50px;
 	margin-bottom: 20px;
 	margin-left: 100px;
+	cursor: pointer;
 }
 
 .sign {
@@ -173,6 +175,7 @@
 	line-height: 20px;
 	color: white;
 	margin: 10px;
+	cursor: pointer;
 }
 
 .imag {
