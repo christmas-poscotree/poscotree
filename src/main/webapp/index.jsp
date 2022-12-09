@@ -236,7 +236,7 @@
 					<a href="#">close</a>
 				</div>
 				<div>
-					<button type="button" class="log2">나만의 트리 만들기</button>
+					<button type="button" class="log2">나만의 트리 만들기 방법</button>
 					<div class="title">
 						<img src="/img/3.png" class="img-size" />크리스마스 트리 이용 방법
 					</div>
