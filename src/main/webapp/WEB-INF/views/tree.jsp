@@ -40,6 +40,7 @@
     position: relative;
   	align-items: center;
     height: 100%;
+    widows: 100%;
 }
 
 .bform{
@@ -109,7 +110,7 @@
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
    
 }
 
@@ -171,6 +172,7 @@
 
 <title>My tree</title>
 	<script type="text/javascript">
+
 		let nowUrl = window.document.location.href;
 		
 		function copyUrl(){ 
@@ -183,6 +185,7 @@
 			document.execCommand("copy");
 			document.body.removeChild(textarea);
 			alert("트리주소가 복사되었습니다.")
+
 		}
 		
 		function popOpen() {
