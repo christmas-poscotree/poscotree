@@ -217,7 +217,6 @@
 <body>
 
 	<div class="background">
-		<audio src="../img/christmas.mp3" controls autoplay loop style="margin-top: 20px; margin-left: 20px;"></audio>
 		<p class="s3">꾸며줘! 나의 트리</p>
 		<div class="form">
 			<!-- 원래는 로그인 페이지에서 로그인 누르면!  -->

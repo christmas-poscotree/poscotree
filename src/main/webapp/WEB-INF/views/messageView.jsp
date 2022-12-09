@@ -77,7 +77,6 @@
 </head>
 <body>
 <div class="background">
-	<audio src="../img/christmas.mp3" controls autoplay loop style="margin-top: 20px; margin-left: 20px;"></audio>
 	<div class="mess" >
 	<div style="margin: 60px auto;">
 	<h1>${message }</h1>
