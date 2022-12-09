@@ -109,7 +109,7 @@
     font-family: Nanum Pen Script;
     line-height: 20px;
     color: white;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
    
 }
 
@@ -152,13 +152,13 @@
 
 <title>My tree</title>
 	<script type="text/javascript">
-		let nowUrl = window.location.href;
-		
-		function copyUrl(){ 
-			  	navigator.clipboard.writeText(nowUrl).then(res=>{
-				 alert("주소가 복사되었습니다!");
-				})
-			}
+	let nowUrl = window.location.href;
+	
+	function copyUrl(){ 
+		  	navigator.clipboard.writeText(nowUrl).then(res=>{
+			 alert("주소가 복사되었습니다!");
+			})
+		}
 		
 		function popOpen() {
 

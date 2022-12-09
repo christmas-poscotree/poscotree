@@ -74,7 +74,7 @@ public class MessageController {
 			) throws SQLException {
 		System.out.println("insert function call");
 		dao.insert(dto, tree_no);
-		return "redirect:/tree/" + tree_no + "/message-list";
+		return "redirect:/tree/" + tree_no;
 	}
 	
 	@RequestMapping("/tree/{tree_no}/message-list")
