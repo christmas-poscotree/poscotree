@@ -115,27 +115,46 @@
 
 			div.x0 {
 			position: relative;
-			grid-column: 3/ 5;
+			grid-column: 4/ 9;
 			}
 			div.x1 {
 				position: relative;
 				grid-row-start: 2;
-				grid-column:2/5;
+				grid-column:3/9;
 			}
 			div.x2 {
 				position: relative;
 				grid-row-start: 2;
-				grid-column: 4/5;
+				grid-column: 5/9;
 			}
 			div.x3 {
 			grid-row-start: 3;
 				position: relative;
-				grid-column : 2 /  5;
+				grid-column : 3/9;
 			}
 			div.x4 {
 			grid-row-start: 3;
 			position: relative;
-			grid-column : 4/  5;
+			grid-column : 6/9;
+			
+			}
+			div.x5 {
+			grid-row-start: 4;
+			position: relative;
+			width :150;
+			grid-column : 2/8;
+			
+			}
+			div.x6 {
+			grid-row-start: 4;
+			position: relative;
+			grid-column : 3/8;
+			
+			}
+			div.x7 {
+			grid-row-start: 4;
+			position: relative;
+			grid-column : 6/8;
 			
 			}
 .table{
@@ -143,7 +162,7 @@
     padding: 10px;
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(6, 30px);
+    grid-template-columns: repeat(8, 40px);
     grid-template-rows: repeat(3, 100px);
     margin-top: 90px;
     gap:35px;
