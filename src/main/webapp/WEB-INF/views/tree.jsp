@@ -171,13 +171,19 @@
 
 <title>My tree</title>
 	<script type="text/javascript">
-		let nowUrl = window.location.href;
+		let nowUrl = window.document.location.href;
 		
 		function copyUrl(){ 
-			  	navigator.clipboard.writeText(nowUrl).then(res=>{
-				 alert("주소가 복사되었습니다!");
-				})
-			}
+			var url = '';
+			var textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			url = window.document.location.href;
+			textarea.value = url;
+			textarea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textarea);
+			alert("트리주소가 복사되었습니다.")
+		}
 		
 		function popOpen() {
 
@@ -238,7 +244,7 @@
 		<% if(memberNo != null && Objects.equals(treeMemberNo, memberNo)) { //로그인했을때 %>
 			<div class='bform'>
 			<button  type="submit" class="log" onClick="location.href='/tree/<%=treeNo%>/message-list'"style="cursor: pointer;">편지 확인하기</button>
-			<button  type="submit" class="sign" onClick="copyUrl()"style="cursor: pointer;">호텔링크 복사하기</button>
+			<button  type="submit" class="sign" onClick="copyUrl()"style="cursor: pointer;">트리링크 복사하기</button>
 			<button  type="submit" class="log" onClick="location.href='/logout'"style="cursor: pointer;">로그아웃</button>
 		</div>
 		<% } else if (memberNo == null){ // 로그인 안한 사람이 작성%>
