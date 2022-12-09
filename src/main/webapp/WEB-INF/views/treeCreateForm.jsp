@@ -173,6 +173,7 @@ top: 100px;
 <body>
 
 	<div class="background" >
+	<audio src="../img/christmas.mp3" controls autoplay loop style="margin-top: 20px; margin-left: 20px;"></audio>
 		<div class="bg_divide" style="position: relative;">
 			
 			<div style="position: relative;">

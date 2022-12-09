@@ -147,8 +147,8 @@
 </head>
 <body>
 
-
 	<div class="background">
+<audio src="/img/christmas.mp3" controls autoplay loop style="margin-top: 20px; margin-left: 20px;"></audio>
 		<%
 		LinkedList<TreeDTO> list01 = (LinkedList<TreeDTO>) request.getAttribute("list");
 		// String num = list01.get;
@@ -156,7 +156,7 @@
 		String num = String.valueOf(request.getAttribute("treeNo"));
 		%>
 
-
+		
 		<table id="customers">
 			<caption class="caption">받은 메세지</caption>
 			<tr>

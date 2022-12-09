@@ -82,6 +82,7 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
     <%
     	String treeNo = (String) request.getAttribute("tree_No");
     %>
+		<audio src="/img/christmas.mp3" controls autoplay loop style="margin-top: 20px; margin-left: 20px;"></audio>
 		<div style="margin: 20px auto;">
         <h1>메세지를 남겨보세요:)</h1>
         </div>
