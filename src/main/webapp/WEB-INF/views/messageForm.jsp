@@ -91,7 +91,7 @@ contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
             <textarea rows="1" cols="40" class="log" name="sender" placeholder="보내는 사람"></textarea><br />
             <div style="margin: 10px auto;">
             <input class="sign" type="submit" value="보내기" /><br>
-            <button class="sign" type="button" style="margin-top: 30px;" >이전으로</button>
+            <button class="sign" type="button" style="margin-top: 30px;" onClick="history.go(-1)">이전으로</button>
             </div>
         </form>
         </div>
